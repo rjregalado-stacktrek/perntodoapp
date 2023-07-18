@@ -3,14 +3,15 @@ const app = express();
 const cors = require("cors");
 const pool = require("./db");
 
-app.use(cors());
+app.use(cors()); // middleware
 app.use(express.json());
 
 // ROUTES
 
 // Create a todo
+// CRUD 
 
-app.post("/todos", async(req, res) => {
+app.post("/todo", async(req, res) => { // C-Create
     try {
         const { description } = req.body;
         const newTodo = await pool.query("INSERT INTO todo (description) VALUES($1) RETURNING *", 
@@ -80,11 +81,9 @@ app.delete("/todos/:id", async(req, res) => {
         
     }
 })
+const PORT = 5000
 
-
-
-
-app.listen(5000, () => {
-    console.log("Server has started on port 5000");
+app.listen(PORT, () => {
+    console.log(`Server has started on port ${PORT}`);
 });
 
