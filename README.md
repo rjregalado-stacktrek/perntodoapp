@@ -1,6 +1,6 @@
 # perntodoapp
 
-1. Clone the repository
+1. Clone the repository by type in the  command prompt `git clone https://github.com/rjregalado-stacktrek/perntodoapp.git` then  press Enter
 2. cd `perntodoapp`
 3. cd `server`
 4. type `npm install`
