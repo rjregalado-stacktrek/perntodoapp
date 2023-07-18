@@ -6,7 +6,7 @@
 4. type `npm install`
 5. Open another terminal
 6. cd `client`
-7. npm install
+7. type `npm install`
 8. Create database in pgAdmin named `CREATE DATABASE perntodo`
 9. Create table name `todo`
 10. Insert values
