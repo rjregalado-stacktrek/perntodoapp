@@ -9,9 +9,9 @@ app.use(express.json());
 // ROUTES
 
 // Create a todo
-// CRUD 
+// CRUD - Create, Read, Update, Delete
 
-app.post("/todo", async(req, res) => { // C-Create
+app.post("/todos", async(req, res) => { // C-Create
     try {
         const { description } = req.body;
         const newTodo = await pool.query("INSERT INTO todo (description) VALUES($1) RETURNING *", 
@@ -24,9 +24,9 @@ app.post("/todo", async(req, res) => { // C-Create
     }
 })
 
-// Get all todos
+// Get all todos - (R - Read) 
 
-app.get("/todos", async(req, res) => {
+app.get("/todos", async(req, res) => { //localhost:5000/todos
     try {
         const allTodos = await pool.query("SELECT * FROM todo");
         res.json(allTodos.rows);
@@ -38,7 +38,7 @@ app.get("/todos", async(req, res) => {
     
 });
 
-// Get a todo
+// Get a todo (R-Read)
 
 app.get("/todos/:id", async (req, res) => {
     try {
@@ -52,7 +52,7 @@ app.get("/todos/:id", async (req, res) => {
     }
 });
 
-// Update a todo
+// Update a todo - Update
 
 app.put("/todos/:id", async(req, res) => {
     try {
@@ -68,7 +68,7 @@ app.put("/todos/:id", async(req, res) => {
     }
 });
 
-// Delete a todo
+// Delete a todo (D-Deleate)
 
 app.delete("/todos/:id", async(req, res) => {
     try {
@@ -81,7 +81,7 @@ app.delete("/todos/:id", async(req, res) => {
         
     }
 })
-const PORT = 5000
+const PORT = 5001
 
 app.listen(PORT, () => {
     console.log(`Server has started on port ${PORT}`);
