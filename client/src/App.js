@@ -8,8 +8,10 @@ function App() {
   return (
   <Fragment>
     <div className='container'>
+      
       <InputTodo/>
       <ListTodos/>
+
     </div>
   </Fragment>
     
